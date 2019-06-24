@@ -1,0 +1,2 @@
+----IF YOU HAVE Min OA Damper----
+if ME.AV25 == 1 then ME.BO98 = 0 else ME.BO98_PV[16] = nil end
