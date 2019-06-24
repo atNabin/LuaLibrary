@@ -1,0 +1,50 @@
+----------------------------
+---Lua Default Values---
+----------------------------
+if not init then init=true ME.MV51_PV[17]=2 ME.AV95_PV[17]=70 ME.MV79_PV[17]=2 ME.MV32_PV[17]=4 ME.AV56_PV[17]=183 ME.MV58_PV[17]=1 ME.AV99_PV[17]=150 ME.MV95_PV[17]=1 ME.MV12_PV[17]=2 ME.AV62_PV[17]=1 ME.MV55_PV[17]=2 ME.AV86_PV[17]=5 ME.AV2_PV[17]=11 ME.AV87_PV[17]=2 ME.AV75_PV[17]=2 ME.MV146_PV[17]=1 ME.MV70_PV[17]=2 ME.CSV1 = "Script 1 DONE" end
+
+
+if not init1 then init1=true ME.AV63_PV[17]=2 ME.AV87_PV[17]=1 ME.AV75_PV[17]=1 ME.AV44_PV[17]=95 ME.AV42_PV[17]=80 ME.AV40_PV[17]=74 ME.AV39_PV[17]=70 ME.AV41_PV[17]=67 ME.AV43_PV[17]=50 ME.AV58_PV[17]=70 ME.AV59_PV[17]=72 ME.MV101_PV[17]=1 ME.MV102_PV[17]=1 ME.AV62_PV[17]=1 ME.MV13_PV[17]=1 ME.MV16_PV[17]=2 ME.CSV1 = "Script 2 DONE" end
+
+
+if not init2 then init2=true ME.MV103_PV[17]=1 ME.MV124_PV[17]=1 ME.MV123_PV[17]=1 ME.MV122_PV[17]=1 ME.MV125_PV[17]=1 ME.MV126_PV[17]=1 ME.MV127_PV[17]=1 ME.MV128_PV[17]=1 ME.MV129_PV[17]=1 ME.MV130_PV[17]=1 ME.MV131_PV[17]=1 ME.MV132_PV[17]=1 ME.MV133_PV[17]=1 ME.MV134_PV[17]=1 ME.MV135_PV[17]=1 ME.CSV1 = "Script 3 DONE" end
+
+
+---Lua Default Values if Heatpump ---
+if not init3 then init3=true ME.MV119_PV[17]=2 ME.AV82_PV[17]=60 ME.AV83_PV[17]=20 ME.CSV1 = "Script HP DONE" end
+
+
+~~~~~~~Lucas Versions (Sets reversing valve config...)~~~~~~~~
+~~ Version for 'O' configuration~~
+if not initHP then initHP=true ME.MV119_PV[17]=2 ME.AV82_PV[17]=60 ME.AV83_PV[17]=20 ME.MV117_PV[17]=1 ME.CSV1 = "Heatpump Set O" end
+~~ Version for 'B' configuration~~
+if not initHP then initHP=true ME.MV119_PV[17]=2 ME.AV82_PV[17]=60 ME.AV83_PV[17]=20 ME.MV117_PV[17]=2 ME.CSV1 = "Heatpump Set B" end
+
+
+
+
+------------------------------------------------------------------------------------------------
+--- Lua Default Values (when running scripts remotely) --------------------------------
+--- Writes check values to Lua Parameter F, instead of to the screen --------------
+--- Recommend changing Lua Parameters F back to '0' when this is completed. ---
+------------------------------------------------------------------------------------------------
+
+
+if not init then init=true ME.MV51_PV[17]=2 ME.AV95_PV[17]=70 ME.MV79_PV[17]=2 ME.MV32_PV[17]=4 ME.AV56_PV[17]=183 ME.MV58_PV[17]=1 ME.AV99_PV[17]=150 ME.MV95_PV[17]=1 ME.MV12_PV[17]=2 ME.AV62_PV[17]=1 ME.MV55_PV[17]=2 ME.AV86_PV[17]=5 ME.AV2_PV[17]=11 ME.AV87_PV[17]=2 ME.AV75_PV[17]=2 ME.MV146_PV[17]=1 ME.MV70_PV[17]=2 ME.AV30_PV[8] = 91 end
+
+
+if not init1 then init1=true ME.AV63_PV[17]=2 ME.AV87_PV[17]=1 ME.AV75_PV[17]=1 ME.AV44_PV[17]=95 ME.AV42_PV[17]=80 ME.AV40_PV[17]=74 ME.AV39_PV[17]=70 ME.AV41_PV[17]=67 ME.AV43_PV[17]=50 ME.AV58_PV[17]=70 ME.AV59_PV[17]=72 ME.MV101_PV[17]=1 ME.MV102_PV[17]=1 ME.AV62_PV[17]=1 ME.MV13_PV[17]=1 ME.MV16_PV[17]=2 ME.AV30_PV[8] = 92 end
+
+
+if not init2 then init2=true ME.MV103_PV[17]=1 ME.MV124_PV[17]=1 ME.MV123_PV[17]=1 ME.MV122_PV[17]=1 ME.MV125_PV[17]=1 ME.MV126_PV[17]=1 ME.MV127_PV[17]=1 ME.MV128_PV[17]=1 ME.MV129_PV[17]=1 ME.MV130_PV[17]=1 ME.MV131_PV[17]=1 ME.MV132_PV[17]=1 ME.MV133_PV[17]=1 ME.MV134_PV[17]=1 ME.MV135_PV[17]=1 ME.AV30_PV[8] = 93 end
+
+
+---Lua Default Values if Heatpump ---
+if not init3 then init3=true ME.MV119_PV[17]=2 ME.AV82_PV[17]=60 ME.AV83_PV[17]=20 ME.AV30_PV[8] = 94 end
+
+
+~~~~~~~Lucas Versions (Sets reversing valve config...)~~~~~~~~
+~~ Version for 'O' configuration~~
+if not initHP then initHP=true ME.MV119_PV[17]=2 ME.AV82_PV[17]=60 ME.AV83_PV[17]=20 ME.MV117_PV[17]=1 ME.AV30_PV[8] = 90 end
+~~ Version for 'B' configuration~~
+if not initHP then initHP=true ME.MV119_PV[17]=2 ME.AV82_PV[17]=60 ME.AV83_PV[17]=20 ME.MV117_PV[17]=2 ME.AV30_PV[8] = 98 end
