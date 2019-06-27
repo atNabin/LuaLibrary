@@ -1,0 +1,16 @@
+--Short Message
+
+
+if not init then
+ME.CSV1 = "**Your short message here**"
+init =1
+end
+-----------------------------------------------------------------------------------------------------------------------
+if not init then ME.CSV1 = "**Your short message here**" init =1 end
+
+
+YOU CAN ADD TO THIS CODE ANYTHING YOU WANT TO SET ON BOOT UP. 
+
+
+if not init then ME.CSV1 = "AUTOMATION TEAM FOR THE WIN" ME.AV101 = 106 init =1 end
+-----------------------------------------------------------------------------------------------------------------------
