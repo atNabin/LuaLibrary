@@ -1,0 +1,19 @@
+--Loop Water Available
+-AV30 = Loop Water Available Bind
+
+---------------------------------------------------------------------
+if ME.AV30== 0 or ME.AV29 == 0 then ME.BO26_PV[15] = 0 ME.BO27_PV[15] = 0 else ME.BO26_PV[15] = nil ME.BO27_PV[15] = nil end
+---------------------------------------------------------------------
+
+ME.AV30 is where we bind Loop Water Available
+ME.AV29 is AS device Status. See code above :)
+ME.AV28 is AS Minute.
+
+
+if ME.AV30== 0 or ME.AV29 == 0 then 
+ME.BO26_PV[15] = 0 
+ME.BO27_PV[15] = 0 
+else 
+ME.BO26_PV[15] = nil 
+ME.BO27_PV[15] = nil 
+end
