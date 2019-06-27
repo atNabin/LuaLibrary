@@ -1,0 +1,18 @@
+Lua program 3
+if ((ME.BO97==0) and (ME.BO96==0) and (ME.BO95==0)) and ((ME.AV101 < (ME.AV25_PV[14] - 2)) or ((ME.AV101 < (ME.AV25_PV[14] + 2)) and (ME.AV25_PV[16]==1))) then ME.AV25_PV[15] = ME.AV25_PV[15] - 1 else ME.AV25_PV[16] = 0 ME.AV25_PV[15] = 60 ME.AV25_PV[14] = 34 end
+
+
+Lua program 4
+if (ME.AV25_PV[15] <= 0) or (ME.BI30==1) then ME.AV25_PV[15] = 0 ME.BO101_PV[15] = 1 ME.BO102_PV[15] = 1 ME.BO93_PV[15] = 0 ME.BO94_PV[15] = 0 ME.AV25_PV[16] = 1 else ME.BO101_PV[15] = nil ME.BO102_PV[15] = nil ME.BO93_PV[15] = nil ME.BO94_PV[15] = nil ME.AV25_PV[16] = 0 end
+
+
+Lua program 5
+if (ME.AV25_PV[16] == 1) then ME.AV25_PV[13] = 1 ME.AV25_PV[12] = 60 ME.MV16 = nil end 
+
+
+Lua Program 6
+if ((ME.AV25_PV[16] == 0) and (ME.AV25_PV[13] == 1) and (ME.AV25_PV[12] <= 1)) then ME.AV25_PV[12] = 0 ME.AV25_PV[13] = 0 ME.BO101_PV[15] = nil ME.BO102_PV[15] = nil ME.BO93_PV[15] = nil ME.BO94_PV[15] = nil ME.MV16 = nil end if (ME.AV25_PV[16] == 0 and ME.AV25_PV[13] == 1) then  ME.AV25_PV[12] = ME.AV25_PV[12] - 1 ME.BO101_PV[15] = 0 ME.BO102_PV[15] = 0 ME.BO93_PV[15] = 1 ME.BO94_PV[15] = 1 ME.MV16 = 1 end
+
+
+Lua Program 7
+if ME.AO22==0 then ME.BO93_PV[15]=1 else ME.BO93_PV[15]=nil end if ME.AO22==100 then ME.BO101_PV[15]=1 else ME.BO101_PV[15]=nil end if ME.AO21==0 then ME.BO94_PV[15]=1 else ME.BO94_PV[15]=nil end if ME.AO21==100 then ME.BO102_PV[15]=1 else ME.BO102_PV[15]=nil end
