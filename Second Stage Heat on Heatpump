@@ -15,3 +15,22 @@ end
 -------------------------------------------------------------------------------------
 ME.MV98_PV[17]=2 if not init_HeatDelay or ME.BO28 == 0 then tmr = 0 ME.BO102_PV[15] = 0 init_HeatDelay = true else tmr = tmr + 1 end if tmr >= 900 then ME.BO102_PV[15] = 1 end
 -------------------------------------------------------------------------------------
+
+--- If you have a heat pump with 2 stages of strip heat, and you want to delay the start of both ---
+if not init_HeatDelay or ME.BO28_PV[17] == 0 then temp = 0 ME.BO28_PV[15] = 0 ME.BO102_PV[15] = 0 init_HeatDelay = true else temp = temp + 1 end if temp >= 120 then ME.BO28_PV[15] = 1 end if temp >= 600 then ME.BO102_PV[15] = 1 end
+
+
+if not init_HeatDelay or ME.BO28_PV[17] == 0 then 
+        temp = 0 
+        ME.BO28_PV[15] = 0 
+        ME.BO102_PV[15] = 0 
+        init_HeatDelay = true 
+else 
+        temp = temp + 1 
+end 
+if temp >= 300 then 
+        ME.BO28_PV[15] = 1 
+end 
+if temp >= 900 then 
+        ME.BO102_PV[15] = 1 
+end
