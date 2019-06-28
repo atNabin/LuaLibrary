@@ -1,2 +1,3 @@
----NEW Lua Program 2 Dewpoint/HsuMd combined!! Lucas hotness ---------
+---NEW Lua Program 2 Dewpoint/HsuMd combined Lucas hotness---
+---NEW Prevents Occupancy cycling during HsuMd----
 b = 17.27 c = 237.3 t = (ME.AV100-32)*5/9 s = 1000*((ME.AV103/100)^(1/1000)-1)+(b*t)/(c+t) ME.AV26 = (c*s)/(b-s) * 9/5 + 32 D=ME.AV26 H=ME.AV103 T=ME.AV100 HiDP=(D>70) LoDP=(D<65) HiRH=(H>70) LoRH=(H<60) HiT=(T>(ME.AV40+1)) LoT=(T<(ME.AV40-1)) if (ME.MV10_PV[16] == 3) then if ((HiDP or HiRH) and HiT) then ME.AV25 = 1 ME.MV10_PV[15] = 2 elseif ((LoDP and LoRH) or LoT) then ME.AV25 = 0 ME.MV10_PV[15] = nil end else ME.AV25 = 0 ME.MV10_PV[15] = nil end
