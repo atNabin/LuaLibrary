@@ -1,0 +1,39 @@
+Freeze Mode program Fan Coils with Analog Outputs.
+
+
+ME.AV25_PV[16]         Freeze Mode
+ME.AV25_PV[15]         Delay to go into Freeze Mode
+ME.AV25_PV[14]         Freeze Setpoint
+ME.AV101               Outdoor Temperature
+ME.AO123               UO11 - HW Vlvc
+ME.AO124               UO12 - CHW Vlv
+ME.BO95                High Fan Speed
+ME.BO96                Medium Fan Speed
+ME.BO97                Low Fan Speed
+ME.MV16                System Mode
+
+
+
+
+This program calculates freeze mode and forces the Hot Water (50%) and Chilled Water (100%) valves to open for the duration of freezer mode. There is a 60 second timer before the unit goes into freeze mode if the fan speeds all show off.
+
+
+if ((ME.BO97==0) and (ME.BO96==0) and (ME.BO95==0)) and ((ME.AV101 < (ME.AV25_PV[14] - 2)) or ((ME.AV101 < (ME.AV25_PV[14] + 2)) and (ME.AV25_PV[16]==1))) then 
+ME.AV25_PV[15] = ME.AV25_PV[15] - 1 
+else 
+ME.AV25_PV[16] = 0 
+ME.AV25_PV[15] = 60 
+ME.AV25_PV[14] = 34 
+end 
+if (ME.AV25_PV[15] <= 0) then 
+ME.AV25_PV[15] = 0 
+ME.AO123_PV[15] = 5 
+ME.AO124_PV[15] = 10 
+ME.AV25_PV[16] = 1 
+else 
+ME.AO123_PV[15] = nil 
+ME.AO124_PV[15] = nil 
+ME.AV25_PV[16] = 0 
+end
+
+if (((ME.BO97==0) and (ME.BO96==0) and (ME.BO95==0)) and (ME.AV101 < (ME.AV25_PV[14] - 2) or ((ME.AV101 < (ME.AV25_PV[14] + 2) and (ME.AV25_PV[16]==1))))) then ME.AV25_PV[15] = ME.AV25_PV[15] - 1 else ME.AV25_PV[16] = 0 ME.AV25_PV[15] = 60 ME.AV25_PV[14] = 34 end if (ME.AV25_PV[15] <= 0) then ME.AV25_PV[15] = 0 ME.AO123_PV[15] = 5 ME.AO124_PV[15] = 10 ME.AV25_PV[16] = 1 else ME.AO123_PV[15] = nil ME.AO124_PV[15] = nil ME.AV25_PV[16] = 0 end
