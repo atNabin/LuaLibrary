@@ -4,8 +4,8 @@
 
 
 ---Lua Program 1 --Freezer Cooler ---
-if not init then t = 0 init = true else t=t+1 ME.AV100 = ME.AV105 ME.CSV1 = "FREEZER TEMPERATURE" if t>=30 then ME.AV100 = ME.AV102 ME.CSV1 = "COOLER TEMPERATURE" end if t>=60 then t = 0 end end
+if not init then t = 0 init = true else t=t+1 ME.AV100 = ME.AV102 ME.CSV1 = "FREEZER TEMPERATURE" if t>=30 then ME.AV100 = ME.AV105 ME.CSV1 = "COOLER TEMPERATURE" end if t>=60 then t = 0 end end
 
 
 ~~~~~~~Lucas Version (Turns Frost protection off, and sets the HMI to 4...)~~~~~~~~
-if not init5 then ME.AV2_PV[17]=4 ME.MV55_PV[17]=1 t = 0 init5 = true else t=t+1 ME.AV100 = ME.AV105 ME.CSV1 = "FREEZER TEMPERATURE" if t>=30 then ME.AV100 = ME.AV102 ME.CSV1 = "COOLER  TEMPERATURE" end if t>=60 then t = 0 end end
+if not init5 then ME.AV2_PV[17]=4 ME.MV55_PV[17]=1 t = 0 init5 = true else t=t+1 ME.AV100 = ME.AV102 ME.CSV1 = "FREEZER TEMPERATURE" if t>=30 then ME.AV100 = ME.AV105 ME.CSV1 = "COOLER  TEMPERATURE" end if t>=60 then t = 0 end end
