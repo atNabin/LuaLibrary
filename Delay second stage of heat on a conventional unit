@@ -1,0 +1,19 @@
+BO28 = W1 Status
+BO29 = W2 Status
+
+if not init_HeatDelay or ME.BO28 == 0 then -- If first strip is off, turn off second strip, reset counter
+    tmr = 0 
+    ME.BO29_PV[15] = 0 
+    init_HeatDelay = true 
+else -- if first strip on, count seconds
+    tmr = tmr + 1 
+end 
+if tmr >= 600 then -- when you reach 600 secs, turn on second strip
+    ME.BO102_PV[15] = nil  
+else
+    ME.BO29_PV[15] = 0
+end
+
+ 
+
+if not init_HeatDelay or ME.BO28 == 0 then tmr = 0 ME.BO29_PV[15] = 0init_HeatDelay = true else tmr = tmr + 1 end if tmr >= 600 then ME.BO102_PV[15] = nil else ME.BO29_PV[15] = 0 end
