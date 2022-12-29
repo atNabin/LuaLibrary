@@ -1,0 +1,33 @@
+  -- Humidity Setup -----------------------------
+  if (ME.AV2{address} ~= 0) then
+    if (not HsuMd) then
+      DptEna = 0
+      HumEna = 0
+      TmpEna = 0
+      HsuMd = 0
+    end
+
+    Hum, Tmp, ClgSpt, OccSts = ME.AV103, ME.AV100, ME.AV40, (ME.MV10_PV[16] or 2)
+    DptSpt, HumSpt = 67.5, (ME.AV2{address} or 65)
+    b, c, DptDif, HumDif, TmpDif = 17.27, 237.3, 2.5, 5, 1
+    HsuMd, OccOvr = 0, nil
+
+    t = (Tmp-32)*5/9
+    s = 1000*((Hum/100)^(1/1000)-1)+(b*t)/(c+t)
+    Dpt = (c*s)/(b-s) * 9/5 + 32
+
+    DptEna = tools.switch(DptEna, Dpt, (DptSpt - DptDif), (DptSpt + DptDif))
+    HumEna = tools.switch(HumEna, Hum, (HumSpt - HumDif), (HumSpt + HumDif))
+    TmpEna = tools.switch(TmpEna, Tmp, (ClgSpt - TmpDif), (ClgSpt + TmpDif))
+
+    if ((OccSts == 3) and (DptEna == 1 or HumEna == 1) and TmpEna == 1) then
+        HsuMd, OccOvr, MinOaDprCmd = 1, 2, 0
+    else
+        HsuMd, OccOvr, MinOaDprCmd = 0, nil, nil
+    end
+    
+    ME.AV{address} = HsuMd
+    ME.MV10_PV[15] = OccOvr
+    if (bo1Ctrl == 1) then ME.BO98_PV[16] = MinOaDprCmd end
+  end
+  -----------------------------------------------
