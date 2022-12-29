@@ -28,6 +28,6 @@
     
     ME.AV{address} = HsuMd
     ME.MV10_PV[15] = OccOvr
-    if (bo1Ctrl == 1) then ME.BO98_PV[16] = MinOaDprCmd end
+    if (bo1Ctrl) then ME.BO98_PV[16] = MinOaDprCmd end
   end
   -----------------------------------------------
