@@ -1,0 +1,5 @@
+if not bo1Init then
+  -- Enable applicable functions
+  ME.AV{address}_Desc, ME.AV{address}_Inc, ME.AV{address}_Min, ME.AV{address}_Max = 'Enable BO1',  1, 0, 1
+  bo1Init = true
+end
