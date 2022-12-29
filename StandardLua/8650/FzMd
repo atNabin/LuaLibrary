@@ -1,0 +1,21 @@
+   -- Freeze Mode --------------------------------
+  if (ME.AV2{address} ~= 0) then
+    if (not FzDly) then
+      FzMd, FzDly = 0, 60
+    end
+
+    FanSts, OaTmp, FzSpt = ME.BO25, ME.AV101, ME.AV2{address}
+
+    FzMd = tools.switch(FzMd, OaTmp, (FzSpt + 2), (FzSpt - 2))
+    if (FanSts == 0 and FzMd == 1) then Tmr = (Tmr or 0) + 1 else Tmr = nil end
+
+    if ((Tmr or 0) >= FzDly) then
+      Tmr, ChwPosOvr, HwPosOvr, FzMd = FzDly, 5, 10, 1
+    else
+      ChwPosOvr, HwPosOvr, FzMd = nil, nil, 0
+    end
+
+    ME.AV{address}_PV[15], ME.AV{address}_PV[16] = FzMd, Tmr
+    ME.AO123_PV[10], ME.AO126_PV[10] = ChwPosOvr, HwPosOvr
+  end
+  -----------------------------------------------
