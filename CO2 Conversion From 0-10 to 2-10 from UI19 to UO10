@@ -1,0 +1,3 @@
+CO2 Conversion From 0-10 to 2-10 from UI19 to UO10
+
+ME.AO126_PV[15] = tools.scale(ME.AV108, 0, 0, 2, 10, 10)
