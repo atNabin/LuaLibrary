@@ -1,5 +1,4 @@
------ On Lua Program 4
---- If you have a heat pump with a second stage of heat ---
+--- If you have a heat pump with a second stage of heat on UO12 Binary Output ---
 
 ME.MV99_PV[17]=2 -- Set UO12 to binary
 if not init_HeatDelay or ME.BO28 == 0 then -- If first strip is off, turn off second strip, reset counter
@@ -15,6 +14,20 @@ end
 -------------------------------------------------------------------------------------
 ME.MV98_PV[17]=2 if not init_HeatDelay or ME.BO28 == 0 then tmr = 0 ME.BO102_PV[15] = 0 init_HeatDelay = true else tmr = tmr + 1 end if tmr >= 900 then ME.BO102_PV[15] = 1 end
 -------------------------------------------------------------------------------------
+
+--- If you have a heat pump with a second stage of heat on UO11 Binary Output---
+
+ME.MV98_PV[17]=2 -- Set UO11 to binary
+if not init_HeatDelay or ME.BO28 == 0 then -- If first strip is off, turn off second strip, reset counter
+tmr = 0 
+ME.BO101_PV[15] = 0 
+init_HeatDelay = true 
+else -- if first strip on, count seconds
+tmr = tmr + 1 
+end 
+if tmr >= 900 then -- when you reach 900 secs, turn on second strip
+ME.BO101_PV[15] = 1 
+end
 
 --- If you have a heat pump with 2 stages of strip heat, and you want to delay the start of both ---
 if not init_HeatDelay or ME.BO28_PV[17] == 0 then temp = 0 ME.BO28_PV[15] = 0 ME.BO102_PV[15] = 0 init_HeatDelay = true else temp = temp + 1 end if temp >= 120 then ME.BO28_PV[15] = 1 end if temp >= 600 then ME.BO102_PV[15] = 1 end
