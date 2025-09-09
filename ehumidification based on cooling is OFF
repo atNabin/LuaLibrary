@@ -1,0 +1,11 @@
+-----------------------------------------------------------------------------------------------------------------------------
+-------------------------Dehumidification---------------------------------------------------------------------------------
+--- Dehum based upon cooling is OFF and only wanting to control UO12 for dehum purposes ------
+ 
+if ME.MI33 == 1 and ME.MI314 == 1 and ME.AV103 >= ME.AV71 and ME.BO26 == 0 ---IF Occupied and Effective System Mode is Cooling and Room Humidity >= Dehumidification Setpoint and Cooling Stage 1 is OFF
+   then ME.BO102_PV[15] = 1 ME.AV230 = 1 ----UO12 Output ON and DehReq ON
+else
+if ME.MI33 == 2 or ME.MI314 == 2 or ME.AV103 < (ME.AV71 - 5) or ME.BO26 == 1 ---IF Unoccupied or Effective System Mode is Heating or Humidity < (Dehum Setpoint - 5) or Cooling Stage 1 is ON
+   then ME.BO102_PV[15] = 0 ME.AV230 = 0 --- UO12 Output OFF and DehReq OFF
+end
+end
